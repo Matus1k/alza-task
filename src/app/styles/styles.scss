@@ -1,0 +1,23 @@
+@import "variables";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: none;
+  background: none;
+}

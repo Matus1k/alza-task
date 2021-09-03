@@ -30,7 +30,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/app/styles/styles.scss"],
+            "styles": ["src/app/styles/common.scss"],
             "scripts": []
           },
           "configurations": {
@@ -95,7 +95,7 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/app/styles"]
             },
-            "styles": ["src/app/styles/styles.scss"],
+            "styles": ["src/app/styles/common.scss"],
             "scripts": []
           }
         }

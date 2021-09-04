@@ -1,1 +1,19 @@
-$primary-color: blue;
+// COLORS
+$myrtly-green: #297a75;
+$light-sea-green: #08c4b1;
+$rich-black: #001b29;
+$caroline-blue: #20a4f3;
+$gray: #c1cfda;
+$light-gray: #eef6fc;
+
+// LAYOUT
+$gap-xsmall: 6px;
+$gap-small: 12px;
+$gap-medium: 18px;
+$gap-large: 24px;
+$gap-xlarge: 32px;
+
+// MIXINS
+@mixin content-padding {
+  padding: $gap-medium $gap-large;
+}

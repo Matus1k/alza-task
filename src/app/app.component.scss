@@ -1,5 +1,5 @@
 @import "variables";
 
-h2 {
-  color: $primary-color;
+.main {
+  @include content-padding;
 }

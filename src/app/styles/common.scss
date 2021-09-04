@@ -1,12 +1,10 @@
 @import "variables";
 
+// NORMALIZE
+
 html,
 body {
   height: 100%;
-}
-
-body {
-  line-height: 1;
 }
 
 * {
@@ -21,3 +19,53 @@ button {
   border: none;
   background: none;
 }
+
+ul {
+  list-style-type: none;
+}
+
+// TYPOGRAPHY
+
+body {
+  color: $rich-black;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 72px;
+  margin: 0 0 $gap-medium;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 36px;
+  margin: 0 0 $gap-medium;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 $gap-medium;
+}
+
+a {
+  text-decoration: none;
+
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    color: $caroline-blue;
+  }
+}
+
+// LAYOUT

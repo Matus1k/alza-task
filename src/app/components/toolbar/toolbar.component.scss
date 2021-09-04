@@ -1,0 +1,44 @@
+@import "variables";
+
+.toolbar {
+  @include content-padding;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo-link {
+  &:hover {
+    color: inherit;
+  }
+}
+
+.nav {
+  display: flex;
+
+  .nav-list-item {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: $rich-black;
+    margin-right: $gap-medium;
+    display: flex;
+    padding: $gap-xsmall $gap-large;
+    background-color: $light-gray;
+    border-radius: 3px;
+
+    &:active,
+    a:visited {
+      color: $rich-black;
+    }
+
+    &:hover {
+      color: $caroline-blue;
+    }
+  }
+
+  .active {
+    color: $caroline-blue;
+  }
+}

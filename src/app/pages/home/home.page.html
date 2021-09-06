@@ -1,5 +1,10 @@
 <h1>Top heroes</h1>
 
-<div class="top-hero-card" *ngFor="let hero of topHeroes$ | async">
-  {{ hero.name }}
+<div class="top-hero-cards-list">
+  <a
+    *ngFor="let hero of topHeroes$ | async"
+    [routerLink]="['../' ,Route.HeroDetail, hero.id]"
+  >
+    <alza-top-hero-card [hero]="hero"></alza-top-hero-card>
+  </a>
 </div>

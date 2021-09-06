@@ -1,0 +1,16 @@
+<div class="top-hero-card" *ngIf="hero">
+  <img [src]="hero.icon" [alt]="hero.name" class="card-icon" />
+
+  <div class="card-feature">
+    <h4 class="hero-name">{{ hero.name }}</h4>
+    <span class="hero-title">{{ hero.title }}</span>
+  </div>
+
+  <div class="tags">
+    <alza-tag
+      *ngFor="let tag of hero.tags"
+      [title]="tag"
+      class="tag"
+    ></alza-tag>
+  </div>
+</div>

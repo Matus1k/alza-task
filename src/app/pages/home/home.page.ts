@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Route } from 'src/app/models/route.enum';
 import { Hero } from '../../models/hero.model';
 import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
 
@@ -11,6 +12,8 @@ import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
 })
 export class HomePage implements OnInit {
   topHeroes$: Observable<Hero[]>;
+  readonly Route = Route;
+
   constructor(private heroesService: HeroesService) {
     this.topHeroes$ = new Observable<Hero[]>();
   }

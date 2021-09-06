@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Hero } from '../../models/hero.model';
 
 @Component({
@@ -12,12 +7,6 @@ import { Hero } from '../../models/hero.model';
   styleUrls: ['./top-hero-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopHeroCardComponent implements OnInit {
+export class TopHeroCardComponent {
   @Input() hero: Hero | undefined;
-
-  ngOnInit() {
-    if (this.hero) {
-      console.log(this.hero.tags);
-    }
-  }
 }

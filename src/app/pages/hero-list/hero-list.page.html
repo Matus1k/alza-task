@@ -1,1 +1,7 @@
 <p>hero-list works!</p>
+
+<ul>
+  <li *ngFor="let hero of heroes$ | async">
+    <a [routerLink]=" ['../',Route.HeroDetail, hero.id]">{{ hero.name }}</a>
+  </li>
+</ul>

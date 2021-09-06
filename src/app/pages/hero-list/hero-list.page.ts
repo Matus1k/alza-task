@@ -1,4 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
+import { Observable } from 'rxjs';
+import { Hero } from '../../models/hero.model';
+import { Route } from '../../models/route.enum';
 
 @Component({
   selector: 'alza-hero-list-page',
@@ -7,7 +11,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroListPage implements OnInit {
-  constructor() {}
+  heroes$: Observable<Hero[]>;
+  readonly Route = Route;
+  constructor(private heroesService: HeroesService) {
+    this.heroes$ = new Observable<Hero[]>();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.heroes$ = this.heroesService.getHeroes();
+  }
 }

@@ -1,5 +1,14 @@
 @import "variables";
 
+:host {
+  width: 100%;
+}
+
 .main {
   @include content-padding;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
 }

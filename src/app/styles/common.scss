@@ -5,6 +5,11 @@
 html,
 body {
   height: 100%;
+  background-image: url("../../assets/images/lol-background.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 * {
@@ -31,7 +36,6 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 26px;
 }
 
 h1 {
@@ -51,6 +55,20 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 36px;
+  margin: 0 0 $gap-small;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 18px;
+  margin: 0 0 $gap-small;
+}
+
 p {
   margin: 0 0 $gap-medium;
 }
@@ -58,6 +76,7 @@ p {
 a {
   text-decoration: none;
 
+  &:link,
   &:active,
   &:visited {
     color: inherit;

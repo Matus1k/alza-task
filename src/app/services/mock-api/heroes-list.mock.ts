@@ -226,5 +226,5 @@ export const TopHeroesMock = [
   HeroesListMock[0],
   HeroesListMock[4],
   HeroesListMock[8],
-  HeroesListMock[10],
+  HeroesListMock[11],
 ];

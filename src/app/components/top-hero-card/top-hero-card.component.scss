@@ -1,0 +1,50 @@
+@import "variables";
+
+.top-hero-card {
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+  height: 275px;
+  margin: $gap-medium;
+  border-radius: 8px;
+  overflow: hidden;
+  border: solid 1px $myrtly-green;
+  box-shadow: 0 0 5px 3px $gray;
+  background-color: $light-gray;
+  position: relative;
+
+  &:hover::after {
+    cursor: pointer;
+  }
+}
+
+.card-icon {
+  width: 100%;
+}
+
+.card-feature {
+  display: flex;
+  flex-direction: column;
+  padding: $gap-small;
+
+  .hero-name {
+    margin-bottom: 0;
+  }
+
+  .hero-title {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+}
+
+.tags {
+  display: flex;
+  position: absolute;
+  bottom: $gap-small;
+  left: $gap-small;
+
+  .tag {
+    margin-right: 6px;
+  }
+}

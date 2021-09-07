@@ -14,6 +14,8 @@ $gap-medium: 18px;
 $gap-large: 24px;
 $gap-xlarge: 32px;
 
+$container-box-shadow: 0 3px 7px $gray;
+
 // MIXINS
 @mixin content-padding {
   padding: $gap-medium $gap-large;

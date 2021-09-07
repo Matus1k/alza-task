@@ -52,7 +52,6 @@ h2 {
   font-weight: 800;
   line-height: 36px;
   margin: 0 0 $gap-medium;
-  text-align: center;
 }
 
 h3 {
@@ -88,3 +87,14 @@ a {
 }
 
 // LAYOUT
+
+.default-main-container {
+  @include content-padding;
+
+  background-color: $light-gray;
+  width: 100%;
+  max-width: 920px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: $container-box-shadow;
+  padding-top: 48px;
+}

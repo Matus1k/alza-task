@@ -1,0 +1,116 @@
+@import "variables";
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-list {
+  column-count: 3;
+
+  .hero-list-item {
+    display: flex;
+    width: 220px;
+    margin-bottom: $gap-small;
+    background-color: $white;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .id {
+      display: flex;
+      width: 40px;
+      justify-content: center;
+      align-items: center;
+      background-color: $myrtly-green;
+      color: $white;
+    }
+
+    .name {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      padding: 0 $gap-medium;
+    }
+
+    .icon {
+      display: flex;
+      width: 40px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .name {
+      background-color: $caroline-blue;
+      color: $white;
+    }
+  }
+}
+
+.chosen-hero-detail {
+  display: grid;
+  grid-template-columns: 120px auto auto;
+  grid-template-rows: auto auto auto;
+  grid-column-gap: $gap-large;
+  grid-row-gap: $gap-small;
+  grid-template-areas:
+    "icon title title tags"
+    "icon description description description"
+    "icon detail . .";
+  margin-bottom: $gap-large;
+
+  .title-wrapper {
+    grid-area: title;
+    .chosen-hero-name {
+      margin-bottom: 0;
+    }
+
+    .chosen-hero-title {
+      margin-bottom: 0;
+    }
+  }
+
+  .chosen-hero-tags {
+    grid-area: tags;
+    display: flex;
+    justify-content: flex-end;
+
+    .tag {
+      margin-right: $gap-xsmall;
+    }
+  }
+
+  .chosen-hero-description-wrapper {
+    grid-area: description;
+
+    .chosen-hero-description {
+      margin: 0;
+    }
+  }
+
+  .chosen-hero-icon-wrapper {
+    grid-area: icon;
+    .chosen-hero-icon {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .view-detail-wrapper {
+    grid-area: detail;
+
+    .view-detail {
+      padding: $gap-small $gap-medium;
+      border-radius: 5px;
+      background-color: $myrtly-green;
+      color: white;
+      display: inline-block;
+
+      &:hover {
+        background-color: $caroline-blue;
+      }
+    }
+  }
+}

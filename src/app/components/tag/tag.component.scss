@@ -1,6 +1,7 @@
 @import "variables";
 
 .tag {
+  display: flex;
   padding: 5px 10px;
   background-color: $caroline-blue;
   color: $white;

@@ -1,7 +1,52 @@
-<p>hero-list works!</p>
+<div class="default-main-container">
+  <h2>My Heroes</h2>
 
-<ul>
-  <li *ngFor="let hero of heroes$ | async">
-    <a [routerLink]=" ['../',Route.HeroDetail, hero.id]">{{ hero.name }}</a>
-  </li>
-</ul>
+  <div class="chosen-hero-detail" *ngIf="chosenHero">
+    <div class="chosen-hero-icon-wrapper">
+      <img
+        class="chosen-hero-icon"
+        [src]="chosenHero.icon"
+        [alt]="chosenHero.name"
+      />
+    </div>
+
+    <div class="title-wrapper">
+      <h3 class="chosen-hero-name">{{ chosenHero.name }}</h3>
+      <h4 class="chosen-hero-title">{{ chosenHero.title }}</h4>
+    </div>
+
+    <div class="chosen-hero-tags">
+      <alza-tag
+        *ngFor="let tag of chosenHero.tags"
+        class="tag"
+        [title]="tag"
+      ></alza-tag>
+    </div>
+
+    <div class="chosen-hero-description-wrapper">
+      <p class="chosen-hero-description">{{ chosenHero.description }}</p>
+    </div>
+
+    <div class="view-detail-wrapper">
+      <a
+        [routerLink]=" ['../',Route.HeroDetail, chosenHero.id]"
+        class="view-detail"
+        >View detail</a
+      >
+    </div>
+  </div>
+
+  <ul class="hero-list">
+    <li
+      *ngFor="let hero of heroes"
+      class="hero-list-item"
+      (click)="changeChosenHero(hero.id)"
+    >
+      <div class="id">{{ hero.id }}</div>
+      <div class="name">{{ hero.name }}</div>
+      <div class="icon-wrapper">
+        <img [src]="hero.icon" [alt]="hero.name" class="icon" />
+      </div>
+    </li>
+  </ul>
+</div>

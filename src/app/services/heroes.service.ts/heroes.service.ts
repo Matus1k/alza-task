@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class HeroesService {
   private readonly heroesUrl = 'api/heroes/';
-  private readonly topHeroes = 'api/top-heroes/';
+  private readonly topHeroesUrl = 'api/top-heroes/';
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class HeroesService {
   }
 
   getTopHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.topHeroes).pipe(
+    return this.http.get<Hero[]>(this.topHeroesUrl).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
@@ -60,5 +60,9 @@ export class HeroesService {
 
   deleteHero(id: number): Observable<any> {
     return this.http.delete(this.heroesUrl + id);
+  }
+
+  deleteTopHero(id: number): Observable<any> {
+    return this.http.delete(this.topHeroesUrl + id);
   }
 }

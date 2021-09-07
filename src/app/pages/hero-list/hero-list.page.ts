@@ -45,7 +45,7 @@ export class HeroListPage implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  changeChosenHero(id: number) {
+  changeChosenHero(id: number): void {
     this.chosenHero = this.heroes.find((hero) => hero.id === id);
   }
 }

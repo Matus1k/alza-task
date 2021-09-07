@@ -1,0 +1,76 @@
+@import "variables";
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-feature {
+  margin-right: $gap-large;
+}
+
+.hero-name {
+  margin-bottom: $gap-xsmall;
+}
+
+.hero-title {
+  margin-bottom: $gap-xsmall;
+}
+
+.tags {
+  display: flex;
+  margin-bottom: $gap-small;
+
+  .tag {
+    margin-right: $gap-xsmall;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gap-large;
+}
+
+.stat {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $white;
+  padding: $gap-xsmall $gap-small;
+  font-size: 14px;
+  margin: 0 $gap-xsmall $gap-xsmall 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loading-screen {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.manage-panel {
+  display: flex;
+  align-items: center;
+}
+
+.delete-button {
+  margin: 0 $gap-xsmall;
+  background-color: $red;
+
+  &:hover {
+    background-color: $dark-red;
+  }
+}
+
+.warning {
+  color: $red;
+}

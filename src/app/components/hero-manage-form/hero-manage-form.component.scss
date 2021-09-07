@@ -1,0 +1,65 @@
+@import "variables";
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gap-large;
+}
+
+.stat {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $white;
+  padding: $gap-xsmall $gap-small;
+  font-size: 14px;
+  margin: 0 $gap-xsmall $gap-xsmall 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manage-panel {
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  display: inline-block;
+  background-color: $gray;
+  padding: $gap-xsmall;
+  margin-left: $gap-xsmall;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.stat-input {
+  width: 120px;
+}
+
+.basic-input {
+  display: flex;
+  margin-bottom: $gap-xsmall;
+  align-items: center;
+  max-width: 400px;
+
+  label {
+    width: 60px;
+  }
+}
+
+.text-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: $gap-small 0 $gap-medium;
+  max-width: 760px;
+
+  .text-area {
+    border: none;
+    background-color: $gray;
+    border-radius: 5px;
+    resize: vertical;
+    padding: $gap-small;
+    font-size: 16px;
+  }
+}

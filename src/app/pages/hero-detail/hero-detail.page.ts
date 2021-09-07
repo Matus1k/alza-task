@@ -21,6 +21,8 @@ import { Route } from '../../models/route.enum';
 export class HeroDetailPage implements OnInit, OnDestroy {
   hero: Hero | undefined;
   warning = false;
+  editMode = false;
+
   constructor(
     private heroesService: HeroesService,
     private route: ActivatedRoute,
@@ -62,5 +64,17 @@ export class HeroDetailPage implements OnInit, OnDestroy {
     } else {
       this.warning = true;
     }
+  }
+
+  heroFormSubmit(hero: Hero): void {
+    this.heroesService
+      .editHero(hero)
+      .pipe(takeUntil(this.unsubscribe$.asObservable()))
+      .subscribe();
+    this.editMode = false;
+  }
+
+  editModeToggle(): void {
+    this.editMode = !this.editMode;
   }
 }

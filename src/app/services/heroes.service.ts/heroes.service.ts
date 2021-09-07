@@ -48,7 +48,6 @@ export class HeroesService {
     hero.id = null;
     return this.http.post<Hero>(this.heroesUrl, hero).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
         return throwError(error);
       })
     );

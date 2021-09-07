@@ -1,0 +1,119 @@
+<h2>{{ type === "edit" ? "Edit hero" : "Create hero" }}</h2>
+
+<form [formGroup]="heroForm" (ngSubmit)="onFormSubmit()">
+  <div class="title-wrapper">
+    <div class="title-feature">
+      <div class="basic-input">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          formControlName="name"
+          class="form-input"
+          id="name"
+        />
+      </div>
+      <div class="basic-input">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          formControlName="title"
+          class="form-input"
+          id="title"
+        />
+      </div>
+
+      <div class="basic-input">
+        <label for="icon">Icon:</label>
+        <input
+          type="text"
+          formControlName="icon"
+          class="form-input"
+          id="icon"
+        />
+      </div>
+
+      <!--      <div class="basic-input">-->
+      <!--        <label for="tags">Tags:</label>-->
+      <!--        <input-->
+      <!--          type="text"-->
+      <!--          formControlName="tags"-->
+      <!--          class="form-input"-->
+      <!--          id="tags"-->
+      <!--        />-->
+      <!--      </div>-->
+
+      <div class="text-area-wrapper">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="5"
+          class="text-area"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <h4>Stats</h4>
+  <div class="stats" formGroupName="stats">
+    <div class="stat">
+      <label for="hp">Hitpoints:</label>
+      <input
+        type="number"
+        formControlName="hp"
+        class="form-input stat-input"
+        id="hp"
+      />
+    </div>
+    <div class="stat">
+      <label for="armor"> Armor:</label>
+      <input
+        type="number"
+        formControlName="armor"
+        class="form-input stat-input"
+        id="armor"
+      />
+    </div>
+    <div class="stat">
+      <label for="movespeed"> Movement speed:</label>
+      <input
+        type="number"
+        formControlName="movespeed"
+        class="form-input stat-input"
+        id="movespeed"
+      />
+    </div>
+    <div class="stat">
+      <label for="attackrange"> Attack range:</label>
+      <input
+        type="number"
+        formControlName="attackrange"
+        class="form-input stat-input"
+        id="attackrange"
+      />
+    </div>
+    <div class="stat">
+      <label for="attackdamage"> Attack damage:</label>
+      <input
+        type="number"
+        formControlName="attackdamage"
+        class="form-input stat-input"
+        id="attackdamage"
+      />
+    </div>
+    <div class="stat">
+      <label for="attackspeed"> Attack speed:</label>
+      <input
+        type="number"
+        formControlName="attackspeed"
+        class="form-input stat-input"
+        id="attackspeed"
+      />
+    </div>
+  </div>
+  <div class="manage-panel">
+    <button class="primary-button">
+      {{ type === "edit" ? "Save" : "Create" }}
+    </button>
+  </div>
+</form>

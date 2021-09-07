@@ -100,17 +100,5 @@
 
   .view-detail-wrapper {
     grid-area: detail;
-
-    .view-detail {
-      padding: $gap-small $gap-medium;
-      border-radius: 5px;
-      background-color: $myrtly-green;
-      color: white;
-      display: inline-block;
-
-      &:hover {
-        background-color: $caroline-blue;
-      }
-    }
   }
 }

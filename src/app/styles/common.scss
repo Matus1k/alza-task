@@ -98,3 +98,16 @@ a {
   box-shadow: $container-box-shadow;
   padding-top: 48px;
 }
+
+.primary-button {
+  display: inline-block;
+  padding: $gap-small $gap-medium;
+  border-radius: 5px;
+  background-color: $myrtly-green;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $caroline-blue;
+  }
+}

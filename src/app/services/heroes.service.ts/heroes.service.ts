@@ -25,7 +25,7 @@ export class HeroesService {
 
   getHeroesReguest(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-      tap((x) => this.heroList$.next(x)),
+      tap((heroes) => this.heroList$.next(heroes)),
       tap(() => this.loading$.next(false))
     );
   }
@@ -60,7 +60,5 @@ export class HeroesService {
 }
 
 function editHeroInList(heroes: Hero[], newHero: Hero): Hero[] {
-  const heroId = heroes.findIndex((hero) => hero.id === newHero.id);
-
   return heroes.map((hero) => (hero.id === newHero.id ? newHero : hero));
 }

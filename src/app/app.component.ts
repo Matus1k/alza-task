@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeroesService } from './services/heroes.service.ts/heroes.service';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'alza-root',

@@ -16,7 +16,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroManageFormComponent implements OnChanges {
-  @Input() hero: Hero | undefined;
+  @Input() hero?: Hero;
   @Input() type: 'edit' | 'create' = 'create';
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
   heroForm: FormGroup;

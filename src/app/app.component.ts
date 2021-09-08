@@ -9,6 +9,6 @@ import { HeroesService } from './services/heroes.service.ts/heroes.service';
 })
 export class AppComponent {
   constructor(private readonly heroService: HeroesService) {
-    this.heroService.getHeroesReguest().subscribe();
+    this.heroService.getHeroesRequest().subscribe();
   }
 }

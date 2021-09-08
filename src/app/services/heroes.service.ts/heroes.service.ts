@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Hero } from '../../models/hero.model';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, withLatestFrom } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { tap, withLatestFrom } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class HeroesService {
     return this.loading$.asObservable();
   }
 
-  getHeroesReguest(): Observable<Hero[]> {
+  getHeroesRequest(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
       tap((heroes) => this.heroList$.next(heroes)),
       tap(() => this.loading$.next(false))
@@ -31,13 +31,9 @@ export class HeroesService {
   }
 
   createHero(hero: Partial<Hero>): Observable<Hero> {
-    //@ts-expect-error
-    hero.id = null;
-    return this.http.post<Hero>(this.heroesUrl, hero).pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError(error);
-      })
-    );
+    hero.id = this.heroList$.getValue().length + 1;
+    this.heroList$.next(this.heroList$.getValue().concat(hero as Hero));
+    return this.http.post<Hero>(this.heroesUrl, hero);
   }
 
   editHero(hero: Hero): Observable<unknown> {

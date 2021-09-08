@@ -108,6 +108,7 @@
     <div class="stat">
       <label for="attackdamage"> Attack damage:</label>
       <input
+        required
         type="number"
         formControlName="attackdamage"
         class="form-input stat-input"
@@ -117,6 +118,7 @@
     <div class="stat">
       <label for="attackspeed"> Attack speed:</label>
       <input
+        required
         type="number"
         formControlName="attackspeed"
         class="form-input stat-input"
@@ -126,7 +128,7 @@
   </div>
 
   <div class="manage-panel">
-    <button class="primary-button">
+    <button class="primary-button" type="submit">
       {{ type === "edit" ? "Save" : "Create" }}
     </button>
   </div>

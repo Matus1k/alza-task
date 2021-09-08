@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  justify-content: space-between;
 }
 
 .logo {
@@ -30,6 +31,7 @@
     position: relative;
     display: block;
     text-align: center;
+    margin: 0 $gap-xlarge;
 
     &:hover {
       color: inherit;
@@ -88,4 +90,39 @@
   .active {
     color: $caroline-blue;
   }
+}
+
+.create-hero-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover .create-hero-label,
+  &:hover .create-hero {
+    background-color: $caroline-blue;
+  }
+}
+
+.create-hero-label {
+  color: $white;
+  padding: $gap-small $gap-medium $gap-small $gap-xlarge;
+  background-color: $myrtly-green;
+  border-radius: 30px;
+  font-size: 14px;
+  position: relative;
+  right: 25px;
+}
+
+.create-hero {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $myrtly-green;
+  font-size: 48px;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
 }

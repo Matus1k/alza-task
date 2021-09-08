@@ -1,37 +1,44 @@
 <div class="toolbar-wrapper">
   <div class="toolbar">
     <div class="logo">
-      <a href="/" class="logo-link">
-        <div class>
-          <h2 class="logo-title title-line-1">Tour</h2>
-          <h2 class="logo-title title-line-2">of</h2>
-          <h2 class="logo-title title-line-3">Heroes</h2>
-        </div>
-        <img
-          src="../../../assets/images/lol-icon.png"
-          alt="lol"
-          class="logo-image"
-        />
-      </a>
+      <div>
+        <a href="/" class="logo-link">
+          <div class>
+            <h2 class="logo-title title-line-1">Tour</h2>
+            <h2 class="logo-title title-line-2">of</h2>
+            <h2 class="logo-title title-line-3">Heroes</h2>
+          </div>
+          <img
+            src="../../../assets/images/lol-icon.png"
+            alt="lol"
+            class="logo-image"
+          />
+        </a>
+      </div>
+
+      <ul class="nav">
+        <li>
+          <a
+            [routerLink]="Route.Home"
+            routerLinkActive="active"
+            class="nav-list-item"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="Route.HeroList"
+            routerLinkActive="active"
+            class="nav-list-item"
+            >Heroes</a
+          >
+        </li>
+      </ul>
     </div>
 
-    <ul class="nav">
-      <li>
-        <a
-          [routerLink]="Route.Home"
-          routerLinkActive="active"
-          class="nav-list-item"
-          >Dashboard</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="Route.HeroList"
-          routerLinkActive="active"
-          class="nav-list-item"
-          >Heroes</a
-        >
-      </li>
-    </ul>
+    <a [routerLink]="Route.CreateHero" class="create-hero-wrapper">
+      <div class="create-hero">&plus;</div>
+      <div class="create-hero-label">Create hero</div>
+    </a>
   </div>
 </div>

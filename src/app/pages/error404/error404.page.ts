@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Route } from '../../models/route.enum';
 
 @Component({
   selector: 'alza-error404',
@@ -6,8 +8,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./error404.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Error404Page implements OnInit {
-  constructor() {}
+export class Error404Page {
+  constructor(private readonly router: Router) {}
 
-  ngOnInit(): void {}
+  redirect(): void {
+    this.router.navigateByUrl(Route.Home);
+  }
 }

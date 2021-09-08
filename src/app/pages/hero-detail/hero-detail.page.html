@@ -1,4 +1,4 @@
-<div class="default-main-container" *ngIf="hero else load">
+<div class="default-main-container" *ngIf="hero$ | async as hero">
   <div class="hero-detail-wrapper" *ngIf="!editMode else edit">
     <div class="title-wrapper">
       <div class="title-feature">
@@ -49,7 +49,3 @@
     </div>
   </ng-template>
 </div>
-
-<ng-template #load>
-  <div class="loading-screen default-main-container">loading ...</div>
-</ng-template>

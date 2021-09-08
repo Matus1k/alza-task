@@ -1,15 +1,21 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Hero } from '../../models/hero.model';
 import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  startWith,
+  switchMap,
+  take,
+  takeUntil,
+} from 'rxjs/operators';
 import { Route } from '../../models/route.enum';
 
 @Component({
@@ -19,46 +25,41 @@ import { Route } from '../../models/route.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroDetailPage implements OnInit, OnDestroy {
-  hero: Hero | undefined;
+  hero$: Observable<Hero>;
   warning = false;
-  editMode = false;
+  editMode = true;
+  loading$ = new Observable<boolean>().pipe(startWith(true));
 
   constructor(
     private heroesService: HeroesService,
     private route: ActivatedRoute,
-    private ref: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  private readonly unsubscribe$ = new Subject();
-
-  ngOnInit(): void {
+  ) {
+    this.loading$ = this.heroesService.getLoading();
+    this.hero$ = new Observable<Hero>();
     const heroId = this.route.snapshot.paramMap.get('id');
     if (heroId) {
-      this.heroesService
-        .getHero(parseInt(heroId))
-        .pipe(takeUntil(this.unsubscribe$.asObservable()))
-        .subscribe((hero) => {
-          this.hero = hero;
-          this.ref.markForCheck();
-        });
+      this.hero$ = this.heroesService.getHeroes().pipe(
+        map((heroes) => heroes.filter((hero) => hero.id === parseInt(heroId))),
+        map((heroes) => heroes[0])
+      );
     }
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
+  private readonly unsubscribe$ = new Subject();
+
+  ngOnInit(): void {}
 
   deleteHero(): void {
-    if (this.warning && this.hero) {
-      this.heroesService
-        .deleteHero(this.hero.id)
-        .pipe(takeUntil(this.unsubscribe$.asObservable()))
-        .subscribe();
-      this.heroesService
-        .deleteTopHero(this.hero.id)
-        .pipe(takeUntil(this.unsubscribe$.asObservable()))
+    if (this.warning) {
+      this.hero$
+        .pipe(
+          switchMap(
+            (hero: Hero): Observable<any> =>
+              this.heroesService.deleteHero(hero.id)
+          ),
+          take(1)
+        )
         .subscribe();
       this.router.navigateByUrl('/' + Route.Home);
     } else {
@@ -76,5 +77,10 @@ export class HeroDetailPage implements OnInit, OnDestroy {
 
   editModeToggle(): void {
     this.editMode = !this.editMode;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

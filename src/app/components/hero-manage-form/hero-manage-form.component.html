@@ -42,6 +42,19 @@
       <!--        />-->
       <!--      </div>-->
 
+      <div class="checkbox-label-wrapper">
+        <label for="top"> Top hero:</label>
+        <div class="checkbox-wrapper">
+          <input
+            type="checkbox"
+            id="top"
+            formControlName="top"
+            class="checkbox"
+          />
+          <label for="top"></label>
+        </div>
+      </div>
+
       <div class="text-area-wrapper">
         <label for="description">Description:</label>
         <textarea
@@ -111,6 +124,7 @@
       />
     </div>
   </div>
+
   <div class="manage-panel">
     <button class="primary-button">
       {{ type === "edit" ? "Save" : "Create" }}

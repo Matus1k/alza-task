@@ -4,6 +4,7 @@ export const HeroesListMock = [
     name: 'Aatrox',
     title: 'the Darkin Blade',
     tags: ['Fighter', 'Tank'],
+    top: true,
     stats: {
       hp: 580,
       movespeed: 345,
@@ -21,6 +22,7 @@ export const HeroesListMock = [
     name: 'Ahri',
     title: 'the Nine-Tailed Fox',
     tags: ['Mage', 'Assassin'],
+    top: false,
     stats: {
       hp: 526,
       movespeed: 330,
@@ -38,6 +40,7 @@ export const HeroesListMock = [
     name: 'Akali',
     title: 'the Rogue Assassin',
     tags: ['Assassin'],
+    top: false,
     stats: {
       hp: 575,
       movespeed: 345,
@@ -55,6 +58,7 @@ export const HeroesListMock = [
     name: 'Blitzcrank',
     title: 'the Great Steam Golem',
     tags: ['Tank', 'Fighter'],
+    top: false,
     stats: {
       hp: 582.6,
       movespeed: 325,
@@ -72,6 +76,7 @@ export const HeroesListMock = [
     name: 'Camille',
     title: 'the Steel Shadow',
     tags: ['Fighter', 'Tank'],
+    top: true,
     stats: {
       hp: 575.6,
       movespeed: 340,
@@ -89,6 +94,7 @@ export const HeroesListMock = [
     name: 'Draven',
     title: 'the Glorious Executioner',
     tags: ['Marksman'],
+    top: false,
     stats: {
       hp: 605,
       movespeed: 330,
@@ -106,6 +112,7 @@ export const HeroesListMock = [
     name: 'Ezreal',
     title: 'the Prodigal Explorer',
     tags: ['Marksman', 'Mage'],
+    top: false,
     stats: {
       hp: 530,
       movespeed: 325,
@@ -123,6 +130,7 @@ export const HeroesListMock = [
     name: 'Gangplank',
     title: 'the Saltwater Scourge',
     tags: ['Fighter'],
+    top: false,
     stats: {
       hp: 540,
       movespeed: 345,
@@ -140,6 +148,7 @@ export const HeroesListMock = [
     name: 'Heimerdinger',
     title: 'the Revered Inventor',
     tags: ['Mage', 'Support'],
+    top: false,
     stats: {
       hp: 488,
       movespeed: 340,
@@ -157,6 +166,7 @@ export const HeroesListMock = [
     name: 'Jarvan IV',
     title: 'the Exemplar of Demacia',
     tags: ['Tank', 'Fighter'],
+    top: true,
     stats: {
       hp: 570,
       movespeed: 340,
@@ -174,6 +184,7 @@ export const HeroesListMock = [
     name: 'Yasuo',
     title: 'the Unforgiven Inter',
     tags: ['Fighter', 'Assassin'],
+    top: false,
     stats: {
       hp: 490,
       movespeed: 345,
@@ -191,6 +202,7 @@ export const HeroesListMock = [
     name: 'Yuumi',
     title: 'the Magical Cat',
     tags: ['Support', 'Mage'],
+    top: true,
     stats: {
       hp: 480,
       movespeed: 330,
@@ -208,6 +220,7 @@ export const HeroesListMock = [
     name: 'Zed',
     title: 'the Master of Shadows',
     tags: ['Assassin'],
+    top: false,
     stats: {
       hp: 584,
       movespeed: 345,
@@ -220,11 +233,4 @@ export const HeroesListMock = [
     description:
       "Utterly ruthless and without mercy, Zed is the leader of the Order of Shadow, an organization he created with the intent of militarizing Ionia's magical and martial traditions to drive out Noxian invaders. During the war, desperation led him to unlock...",
   },
-];
-
-export const TopHeroesMock = [
-  HeroesListMock[0],
-  HeroesListMock[4],
-  HeroesListMock[8],
-  HeroesListMock[11],
 ];

@@ -1,12 +1,20 @@
 <div class="default-main-container">
-  <h1>Top heroes</h1>
+  <div class="home-page-wrapper" *ngIf="!(loading$ | async) else loading">
+    <h1>Top heroes</h1>
 
-  <div class="top-hero-cards-list">
-    <a
-      *ngFor="let hero of topHeroes$ | async"
-      [routerLink]="['../' ,Route.HeroDetail, hero.id]"
-    >
-      <alza-top-hero-card [hero]="hero"></alza-top-hero-card>
-    </a>
+    <div class="top-hero-cards-list">
+      <a
+        *ngFor="let hero of topHeroes$ | async"
+        [routerLink]="['../' ,Route.HeroDetail, hero.id]"
+      >
+        <alza-top-hero-card [hero]="hero"></alza-top-hero-card>
+      </a>
+    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="loading-wrapper">
+    <alza-loading-dots></alza-loading-dots>
+  </div>
+</ng-template>

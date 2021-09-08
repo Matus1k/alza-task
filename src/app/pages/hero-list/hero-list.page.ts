@@ -6,10 +6,10 @@ import {
   OnInit,
 } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Hero } from '../../models/hero.model';
 import { Route } from '../../models/route.enum';
-import { takeUntil } from 'rxjs/operators';
+import { startWith, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'alza-hero-list-page',
@@ -17,7 +17,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./hero-list.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeroListPage implements OnInit, OnDestroy {
+export class HeroListPage implements OnDestroy {
   heroes: Hero[] = [];
   chosenHero: Hero | undefined;
 
@@ -27,9 +27,7 @@ export class HeroListPage implements OnInit, OnDestroy {
   constructor(
     private readonly heroesService: HeroesService,
     readonly ref: ChangeDetectorRef
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.heroesService
       .getHeroes()
       .pipe(takeUntil(this.unsubscribe$.asObservable()))

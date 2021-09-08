@@ -27,6 +27,7 @@ export class HeroManageFormComponent implements OnChanges {
       name: '',
       title: '',
       tags: null,
+      top: false,
       icon: '',
       description: '',
       stats: this.fb.group({
@@ -47,6 +48,7 @@ export class HeroManageFormComponent implements OnChanges {
         name: this.hero.name,
         title: this.hero.title,
         tags: this.hero.tags,
+        top: this.hero.top,
         icon: this.hero.icon,
         description: this.hero.description,
         stats: {

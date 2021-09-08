@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { HeroesService } from './services/heroes.service.ts/heroes.service';
 
 @Component({
   selector: 'alza-root',
@@ -6,4 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(private readonly heroService: HeroesService) {
+    this.heroService.getHeroesReguest().subscribe();
+  }
+}

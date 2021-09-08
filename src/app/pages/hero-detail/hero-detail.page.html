@@ -1,43 +1,51 @@
-<div class="hero-detail-wrapper default-main-container" *ngIf="hero else load">
-  <div class="title-wrapper">
-    <div class="title-feature">
-      <h2 class="hero-name">{{ hero.name }}</h2>
-      <h4 class="hero-title">{{ hero.title }}</h4>
-      <div class="tags">
-        <alza-tag
-          *ngFor="let tag of hero.tags"
-          [title]="tag"
-          class="tag"
-        ></alza-tag>
+<div class="default-main-container" *ngIf="hero$ | async as hero">
+  <div class="hero-detail-wrapper" *ngIf="!editMode else edit">
+    <div class="title-wrapper">
+      <div class="title-feature">
+        <h2 class="hero-name">{{ hero.name }}</h2>
+        <h4 class="hero-title">{{ hero.title }}</h4>
+        <div class="tags">
+          <alza-tag
+            *ngFor="let tag of hero.tags"
+            [title]="tag"
+            class="tag"
+          ></alza-tag>
+        </div>
+        <p>{{ hero.description }}</p>
       </div>
-      <p>{{ hero.description }}</p>
+
+      <div class="icon">
+        <img [src]="hero.icon" [alt]="hero.name" />
+      </div>
     </div>
 
-    <div class="icon">
-      <img [src]="hero.icon" [alt]="hero.name" />
+    <h4>Stats</h4>
+
+    <div class="stats">
+      <div class="stat">Hitpoints: {{hero.stats.hp}}</div>
+      <div class="stat">Armor: {{hero.stats.armor}}</div>
+      <div class="stat">Movement speed: {{hero.stats.movespeed}}</div>
+      <div class="stat">Attack range: {{hero.stats.attackrange}}</div>
+      <div class="stat">Attack damage: {{hero.stats.attackdamage}}</div>
+      <div class="stat">Attack speed: {{hero.stats.attackspeed}}</div>
+    </div>
+
+    <div class="manage-panel">
+      <button class="primary-button" (click)="editModeToggle()">Edit</button>
+      <button class="primary-button delete-button" (click)="deleteHero()">
+        {{ this.warning ? 'Yes pls!' : 'Delete' }}
+      </button>
+      <div class="warning" *ngIf="warning">you sure?</div>
     </div>
   </div>
 
-  <h4>Stats</h4>
-
-  <div class="stats">
-    <div class="stat">Hitpoints: {{hero.stats.hp}}</div>
-    <div class="stat">Armor: {{hero.stats.armor}}</div>
-    <div class="stat">Movement speed: {{hero.stats.movespeed}}</div>
-    <div class="stat">Attack range: {{hero.stats.attackrange}}</div>
-    <div class="stat">Attack damage: {{hero.stats.attackdamage}}</div>
-    <div class="stat">Attack speed: {{hero.stats.attackspeed}}</div>
-  </div>
-
-  <div class="manage-panel">
-    <button class="primary-button">Edit</button>
-    <button class="primary-button delete-button" (click)="deleteHero()">
-      {{ this.warning ? 'Yes pls!' : 'Delete' }}
-    </button>
-    <div class="warning" *ngIf="warning">you sure?</div>
-  </div>
+  <ng-template #edit>
+    <div class="edit-form">
+      <alza-hero-manage-form
+        [hero]="hero"
+        [type]="'edit'"
+        (formSubmit)="heroFormSubmit($event)"
+      ></alza-hero-manage-form>
+    </div>
+  </ng-template>
 </div>
-
-<ng-template #load>
-  <div class="loading-screen default-main-container">loading ...</div>
-</ng-template>

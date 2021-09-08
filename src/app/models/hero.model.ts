@@ -13,6 +13,7 @@ export interface Hero {
   };
   icon: string;
   description: string;
+  top: boolean;
 }
 
 type HeroType =

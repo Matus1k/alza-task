@@ -1,0 +1,109 @@
+@import "variables";
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gap-large;
+}
+
+.stat {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $white;
+  padding: $gap-xsmall $gap-small;
+  font-size: 14px;
+  margin: 0 $gap-xsmall $gap-xsmall 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manage-panel {
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  display: inline-block;
+  background-color: $gray;
+  padding: $gap-xsmall;
+  margin-left: $gap-xsmall;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.stat-input {
+  width: 120px;
+}
+
+.basic-input {
+  display: flex;
+  margin-bottom: $gap-xsmall;
+  align-items: center;
+  max-width: 400px;
+
+  label {
+    width: 60px;
+  }
+}
+
+.text-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: $gap-small 0 $gap-medium;
+  max-width: 760px;
+
+  .text-area {
+    border: none;
+    background-color: $gray;
+    border-radius: 5px;
+    resize: vertical;
+    padding: $gap-small;
+    font-size: 16px;
+  }
+}
+
+.checkbox-label-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrapper {
+  width: 20px;
+  position: relative;
+  margin: $gap-xsmall;
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $myrtly-green;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5),
+      0 1px 0 rgba(255, 255, 255, 0.4);
+    &:after {
+      content: "";
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+  .checkbox {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+}

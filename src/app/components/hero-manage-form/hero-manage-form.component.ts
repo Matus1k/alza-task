@@ -21,12 +21,25 @@ export class HeroManageFormComponent implements OnChanges {
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
   heroForm: FormGroup;
 
+  readonly dropdownSettings = {
+    singleSelection: false,
+  };
+
+  readonly heroType = [
+    'Mage',
+    'Assassin',
+    'Fighter',
+    'Tank',
+    'Marksman',
+    'Support',
+  ];
+
   constructor(private fb: FormBuilder) {
     this.heroForm = this.fb.group({
       id: null,
       name: ['', Validators.required],
       title: ['', Validators.required],
-      tags: null,
+      tags: [],
       top: false,
       icon: ['', Validators.required],
       description: ['', Validators.required],

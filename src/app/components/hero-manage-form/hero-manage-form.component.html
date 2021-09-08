@@ -32,15 +32,15 @@
         />
       </div>
 
-      <!--      <div class="basic-input">-->
-      <!--        <label for="tags">Tags:</label>-->
-      <!--        <input-->
-      <!--          type="text"-->
-      <!--          formControlName="tags"-->
-      <!--          class="form-input"-->
-      <!--          id="tags"-->
-      <!--        />-->
-      <!--      </div>-->
+      <div class="tags-wrapper">
+        <ng-multiselect-dropdown
+          [placeholder]="'Champion type'"
+          [data]="heroType"
+          formControlName="tags"
+          [settings]="dropdownSettings"
+        >
+        </ng-multiselect-dropdown>
+      </div>
 
       <div class="checkbox-label-wrapper">
         <label for="top"> Top hero:</label>

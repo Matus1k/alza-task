@@ -48,6 +48,11 @@
   }
 }
 
+.tags-wrapper {
+  margin: $gap-small 0;
+  max-width: 760px;
+}
+
 .text-area-wrapper {
   display: flex;
   flex-direction: column;

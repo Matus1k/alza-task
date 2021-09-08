@@ -9,7 +9,6 @@ import { catchError, tap, withLatestFrom } from 'rxjs/operators';
 })
 export class HeroesService {
   private readonly heroesUrl = 'api/heroes/';
-  private readonly topHeroesUrl = 'api/top-heroes/';
 
   heroList$ = new BehaviorSubject<Hero[]>([]);
   loading$ = new BehaviorSubject<boolean>(true);
@@ -42,7 +41,6 @@ export class HeroesService {
   }
 
   editHero(hero: Hero): Observable<unknown> {
-    console.log('edit');
     return this.http.put(this.heroesUrl + hero.id, hero).pipe(
       withLatestFrom(this.heroList$),
       tap(([_, heroList]) =>
@@ -52,7 +50,6 @@ export class HeroesService {
   }
 
   deleteHero(id: number): Observable<unknown> {
-    console.log('delete');
     return this.http.delete(this.heroesUrl + id).pipe(
       withLatestFrom(this.heroList$),
       tap(([_, heroList]) =>

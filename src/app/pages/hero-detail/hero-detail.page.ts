@@ -27,7 +27,7 @@ import { Route } from '../../models/route.enum';
 export class HeroDetailPage implements OnInit, OnDestroy {
   hero$: Observable<Hero>;
   warning = false;
-  editMode = true;
+  editMode = false;
   loading$ = new Observable<boolean>().pipe(startWith(true));
 
   constructor(

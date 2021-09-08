@@ -10,6 +10,6 @@ import { take } from 'rxjs/operators';
 })
 export class AppComponent {
   constructor(private readonly heroService: HeroesService) {
-    this.heroService.getHeroesReguest().pipe(take(1)).subscribe();
+    this.heroService.getHeroesReguest().subscribe();
   }
 }

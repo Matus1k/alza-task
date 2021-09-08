@@ -24,6 +24,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: Route.CreateHero,
+    loadChildren: () =>
+      import('./pages/create-hero/create-hero.module').then(
+        (m) => m.CreateHeroModule
+      ),
+  },
+  {
     path: '',
     redirectTo: Route.Home,
     pathMatch: 'full',

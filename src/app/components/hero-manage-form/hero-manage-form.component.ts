@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { Hero } from 'src/app/models/hero.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'alza-hero-manage-form',
@@ -24,19 +24,19 @@ export class HeroManageFormComponent implements OnChanges {
   constructor(private fb: FormBuilder) {
     this.heroForm = this.fb.group({
       id: null,
-      name: '',
-      title: '',
+      name: ['', Validators.required],
+      title: ['', Validators.required],
       tags: null,
       top: false,
-      icon: '',
-      description: '',
+      icon: ['', Validators.required],
+      description: ['', Validators.required],
       stats: this.fb.group({
-        hp: null,
-        armor: null,
-        movespeed: null,
-        attackrange: null,
-        attackdamage: null,
-        attackspeed: null,
+        hp: [null, Validators.required],
+        armor: [null, Validators.required],
+        movespeed: [null, Validators.required],
+        attackrange: [null, Validators.required],
+        attackdamage: [null, Validators.required],
+        attackspeed: [null, Validators.required],
       }),
     });
   }
@@ -64,6 +64,10 @@ export class HeroManageFormComponent implements OnChanges {
   }
 
   onFormSubmit(): void {
-    this.formSubmit.emit(this.heroForm.value);
+    if (this.heroForm.valid) {
+      this.formSubmit.emit(this.heroForm.value);
+    } else {
+      alert('All form fields are required');
+    }
   }
 }

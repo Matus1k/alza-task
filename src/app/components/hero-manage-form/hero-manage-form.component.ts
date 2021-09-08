@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Hero } from 'src/app/models/hero.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'alza-hero-manage-form',
@@ -21,8 +22,9 @@ export class HeroManageFormComponent implements OnChanges {
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
   heroForm: FormGroup;
 
-  readonly dropdownSettings = {
+  readonly dropdownSettings: IDropdownSettings = {
     singleSelection: false,
+    limitSelection: 2,
   };
 
   readonly heroType = [

@@ -8,7 +8,14 @@ import { Observable, Subject } from 'rxjs';
 import { Hero } from '../../models/hero.model';
 import { HeroesService } from '../../services/heroes.service.ts/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, startWith, switchMap, take, takeUntil } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  startWith,
+  switchMap,
+  take,
+  takeUntil,
+} from 'rxjs/operators';
 import { Route } from '../../models/route.enum';
 
 @Component({
@@ -47,6 +54,7 @@ export class HeroDetailPage implements OnInit, OnDestroy {
     if (this.warning) {
       this.hero$
         .pipe(
+          filter((hero) => !!hero),
           switchMap(
             (hero: Hero): Observable<any> =>
               this.heroesService.deleteHero(hero.id)

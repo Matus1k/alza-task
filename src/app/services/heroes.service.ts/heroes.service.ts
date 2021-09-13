@@ -10,8 +10,8 @@ import { tap, withLatestFrom } from 'rxjs/operators';
 export class HeroesService {
   private readonly heroesUrl = 'api/heroes/';
 
-  heroList$ = new BehaviorSubject<Hero[]>([]);
-  loading$ = new BehaviorSubject<boolean>(true);
+  private readonly heroList$ = new BehaviorSubject<Hero[]>([]);
+  private readonly loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient) {}
 

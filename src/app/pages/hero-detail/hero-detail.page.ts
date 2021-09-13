@@ -15,6 +15,7 @@ import {
   switchMap,
   take,
   takeUntil,
+  tap,
 } from 'rxjs/operators';
 import { Route } from '../../models/route.enum';
 
@@ -59,10 +60,10 @@ export class HeroDetailPage implements OnInit, OnDestroy {
             (hero: Hero): Observable<any> =>
               this.heroesService.deleteHero(hero.id)
           ),
+          tap(() => this.router.navigateByUrl('/' + Route.HeroList)),
           take(1)
         )
         .subscribe();
-      this.router.navigateByUrl('/' + Route.HeroList);
     } else {
       this.warning = true;
     }
